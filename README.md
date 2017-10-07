@@ -13,6 +13,6 @@
 * 用户提供题目总数，总体难度，生成一份满足要求的试卷
 * 在用户给出答案后，能够对用户不熟悉的知识点进行判断
 ## 用例图
-![demo](https://github.com/Ttmaxin/myRepoForBlog/blob/master/demo.jpg)
+![demo](https://github.com/Ttmaxin/myRepoForBlog.git)
 ## 性能需求
 ## 其他需求
