@@ -13,11 +13,11 @@
 * 用户提供题目总数，总体难度，生成一份满足要求的试卷
 * 在用户给出答案后，能够对用户不熟悉的知识点进行判断
 ## 用例图
-![demo](https://github.com/Ttmaxin/myRepoForBlog/blob/master/%E7%94%A8%E4%BE%8B%E5%9B%BE1.vsdx)
+![demo](https://github.com/Ttmaxin/myRepoForBlog/blob/master/yongli.jpg)
 ## 性能需求
 ## 其他需求
 
-PSP
+## PSP
 ### 表格
 | 项目进展阶段    |  预计耗时   | 实际耗时 |
 | :--------     | --------:  | :--:    |
