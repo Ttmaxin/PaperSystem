@@ -16,3 +16,19 @@
 ![demo](https://github.com/Ttmaxin/myRepoForBlog/blob/master/%E7%94%A8%E4%BE%8B%E5%9B%BE1.vsdx)
 ## 性能需求
 ## 其他需求
+
+PSP
+### 表格
+| 项目进展阶段    |    预计耗时 | 实际 耗时 |
+| :-------- | --------:| :--: |
+| 计划  | 1600 USD |  5   |
+| 开发    |   12 USD |  12  |
+| * 需求分析    |    1 USD | 234  |
+| * 生成设计文档     |    Value | Qty  |
+| * 设计复审  | 1600 USD |  5    |
+| Phone     |   12 USD |  12  |
+| Pipe      |    1 USD | 234  |
+| Item      |    Value | Qty  |
+| Computer  | 1600 USD |  5   |
+| Phone     |   12 USD |  12  |
+| Pipe      |    1 USD | 234  |
