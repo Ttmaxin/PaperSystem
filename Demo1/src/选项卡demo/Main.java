@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
       // ResultSet rs =sqlQuery.sqlQuery() ;
-		sqlQuery.sqlQuery("1") ;
+		sqlQuery.sqlQuery("3") ;
        //1.在sqlquery（）中把题目追加到文件，jxxk中就直接显示文件 ✅
       // 2.数据库的随机选择不重复问题
        //3.获取用户输入
