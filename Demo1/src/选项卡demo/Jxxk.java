@@ -14,17 +14,17 @@ import javax.swing.JScrollPane;
 public class Jxxk extends JFrame
 {
 	private JTabbedPane tabbedPane;
-	private JLabel label1,label2,label3,label4;
+	private JLabel label1,label2,label3,label4,label5,label6,label7;
 	private JPanel panel1,panel2,panel3;
 	//private JScrollPane panel1;
 	//private JLabel textJLabel;    // JLabel that displays text
-	private JTextArea ta; //显示试题
+	private JTextArea ta,ta2; //显示试题
 	private int j=1;
 	
 	public Jxxk(String s)
 	{
 		super("选项卡窗口"); 
-		setSize(600,1000);
+		setSize(650,1000);
 
 		Container c = getContentPane();
 		tabbedPane=new JTabbedPane();	//创建选项卡面板对象
@@ -38,6 +38,7 @@ public class Jxxk extends JFrame
 		panel2=new JPanel();
 		//panel3=new JPanel();
 		
+		//------------------------------------------------------------学生页面
 		  // set up textJLabel
 		 //  textJLabel = new JLabel();   //分配空间
 		   ta=new JTextArea(30,48);
@@ -96,11 +97,51 @@ public class Jxxk extends JFrame
 		             }
 	         });
 		
-		
-//在面板里加文字
-		   
-			//  panel1.add(jsp);
-		
+		//----------------------------------------------------老师界面
+		    label2=new JLabel("请选择难度",SwingConstants.CENTER);
+		    label3=new JLabel("请输入知识点1",SwingConstants.CENTER);
+		    label6=new JLabel("请输入知识点2",SwingConstants.CENTER);
+		    label7=new JLabel("请输入知识点3",SwingConstants.CENTER);
+		    label5=new JLabel("请输入题目",SwingConstants.CENTER);
+		    
+		    JComboBox combo3=new JComboBox(); //难度
+			combo3.setEditable(false);
+			combo3.setSize(200, 50);
+			combo3.addItem("简单");
+			combo3.addItem("中等");
+			combo3.addItem("困难");
+			
+			JTextField txt1 = new JTextField(25); //输入知识点
+			JTextField txt2 = new JTextField(15); //输入知识点
+			JTextField txt3 = new JTextField(15); //输入知识点
+			
+			 ta2=new JTextArea(20,45);
+			   ta2.setLineWrap(true);
+			
+			   Button b1 = new Button("插入题目");// 在窗口中添加一个按钮；
+			   b1.addActionListener(new ActionListener()
+		        {
+		             public void actionPerformed(ActionEvent e)
+		            {
+		                 //System.out.println("按钮执行关闭窗口的功能");
+		                 // System.exit(0);
+		            	 String nandu=(String) combo3.getSelectedItem();//题目难度
+		            	 String zhishidian=(String) txt1.getText();//知识点
+		            	 String neirong=ta2.getText();
+		            	 sqlInsert.sqlInsert(nandu, zhishidian, neirong);
+		            	 
+		            	 try {
+							String s2=readtxt();
+							ta.setText(s2);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+		            	 
+		             }
+	         });
+			
+//---------------------------------------------将控件加到学生面板上
 		panel1.add(label1);
 		panel1.add(combo1);
 		panel1.add(label4);
@@ -117,6 +158,22 @@ public class Jxxk extends JFrame
 		panel1.setBackground(Color.gray);
 		//panel2.setBackground(Color.blue);
 		//panel3.setBackground(Color.green);
+		//-----------------------------------------------控件加到老师界面上
+		panel2.add(label2);
+		panel2.add(combo3);
+		panel2.add(label3);
+		panel2.add(txt1);    //知识点1
+		panel2.add(label6);
+		panel2.add(txt2);//知识点2
+		panel2.add(label7);
+		panel2.add(txt3);   //知识点3
+		
+		panel2.add(label5);
+		panel2.add(ta2);
+		 panel2.add(new JScrollPane(ta2));
+		
+		 panel2.add(b1);
+		
 		//将标签面板加入到选项卡面板对象上
 		tabbedPane.addTab("学生界面",null,panel1,"First panel");
 		tabbedPane.addTab("老师界面",null,panel2,"Second panel");

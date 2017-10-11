@@ -5,10 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.UUID;
 
-public class sqlQuery {
-	static int j=1;
-	public static void sqlQuery(String num,String difficulty) {
+public class sqlInsert {
+	//static int j=1;
+	public static void sqlInsert(String nandu,String zhishidian,String tigan) {
 	 //声明Connection对象
     Connection con;
     //驱动程序名
@@ -22,38 +23,39 @@ public class sqlQuery {
     //遍历查询结果集
     try {
         //加载驱动程序
-        Class.forName(driver);
-        //1.getConnection()方法，连接MySQL数据库！！
-        con = DriverManager.getConnection(url,user,password);
-        if(!con.isClosed())
-            System.out.println("Succeeded connecting to the Database!");
-        //2.创建statement类对象，用来执行SQL语句！！
-        Statement statement = con.createStatement();
-        //要执行的SQL语句
-        String sql = "select * from lib where diff='"+difficulty+"' order by rand() limit "+num;
-        //3.ResultSet类，用来存放获取的结果集！！
-        ResultSet rs = statement.executeQuery(sql);
-        System.out.println("-----------------");
+			Class.forName(driver);
+			// 1.getConnection()方法，连接MySQL数据库！！
+			con = DriverManager.getConnection(url, user, password);
+			if (!con.isClosed())
+				System.out.println("Succeeded connecting to the Database!");
+			// 2.创建statement类对象，用来执行SQL语句！！
+			Statement statement = con.createStatement();
+			// 要执行的SQL语句
+			// String sql = "select * from lib where 难度='"+difficulty+"' order by rand()
+			// limit "+num;
+			//UUID uuid = UUID.randomUUID();
+			String uuid = UUID.randomUUID().toString(); 
+			
+			// String sql ="insert into lib
+			// values(100,'"+nandu+"','"+zhishidian+"','"+tigan+"')";
+			// sqlInsert.sqlInsert("简单", "追及问题", "测试test");
+			String sql = "insert into lib(id, diff, zsd, tg) values('"+uuid+"','"+nandu+"','"+zhishidian+"','"+tigan+"')";
+			
+			// 3.ResultSet类，用来存放获取的结果集！！
+			int rs = statement.executeUpdate(sql);
+			System.out.println("-----------------");
       
-        String name="第"+j+"份试卷";
-        j++;
-      //修改为写入文件
-      String path="\\Users\\apple\\Desktop\\"+name+".txt";
-     
-     
-      ForFile.createFile(name,"---------------------"+"您已选择 "+num+" 道题，难度为 ["+difficulty+"]-----------------------\n\n");
-      //ForFile.writeFileContent(path,"-----------------------------"+"您已选择 "+num+" 道题，难度为 ["+difficulty+"]-------------------------------\n\n");
-   
+      /*
         String zhishidian = null;
         String tigan = null;
         int i=1;
         while(rs.next()){
         	
             //获取stuname这列数据
-        	zhishidian = rs.getString("zsd");
+        	zhishidian = rs.getString("三级知识点");
         
             //获取stuid这列数据
-        	tigan = rs.getString("tg");
+        	tigan = rs.getString("题干");
          
 
             //输出结果
@@ -62,7 +64,7 @@ public class sqlQuery {
             i++;
         }
         rs.close();
-        con.close();
+        con.close();*/
     } catch(ClassNotFoundException e) {   
         //数据库驱动类异常处理
         System.out.println("Sorry,can`t find the Driver!");   
@@ -76,5 +78,12 @@ public class sqlQuery {
     }finally{
         System.out.println("数据库数据成功获取！！");
     }
+	}
+	
+	
+	public static void main(String args[])
+	{
+		//sqlInsert.sqlInsert("1", "1", "1");
+		sqlInsert.sqlInsert("简单", "追及问题", "测试test");
 	}
 }
