@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		sqlInsert.sqlInsert("简单", "追及问题", "测试test");
+		//sqlInsert.sqlInsert("简单", "追及问题", "测试test");
       // ResultSet rs =sqlQuery.sqlQuery() ;
 		//sqlQuery.sqlQuery("5","3") ;
        //1.在sqlquery（）中把题目追加到文件，jxxk中就直接显示文件 ✅

@@ -9,12 +9,12 @@ import java.util.UUID;
 
 public class sqlInsert {
 	//static int j=1;
-	public static void sqlInsert(String nandu,String zhishidian,String tigan) {
+	public static void sqlInsert(String nandu,String zsd1,String tigan, String zsd2,String zsd3) {
 	 //声明Connection对象
     Connection con;
     //驱动程序名
     String driver = "com.mysql.jdbc.Driver";
-    //URL指向要访问的数据库名mydata
+    //URL指向要访问的数据库名sqltestdb
     String url = "jdbc:mysql://localhost:3306/sqltestdb";
     //MySQL配置时的用户名
     String user = "root";
@@ -31,40 +31,13 @@ public class sqlInsert {
 			// 2.创建statement类对象，用来执行SQL语句！！
 			Statement statement = con.createStatement();
 			// 要执行的SQL语句
-			// String sql = "select * from lib where 难度='"+difficulty+"' order by rand()
-			// limit "+num;
-			//UUID uuid = UUID.randomUUID();
 			String uuid = UUID.randomUUID().toString(); 
-			
-			// String sql ="insert into lib
-			// values(100,'"+nandu+"','"+zhishidian+"','"+tigan+"')";
-			// sqlInsert.sqlInsert("简单", "追及问题", "测试test");
-			String sql = "insert into lib(id, diff, zsd, tg) values('"+uuid+"','"+nandu+"','"+zhishidian+"','"+tigan+"')";
+			String sql = "insert into lib(id, diff, zsd1, tg, zsd2, zsd3) values('"+uuid+"','"+nandu+"','"+zsd1+"','"+tigan+"','"+zsd2+"','"+zsd3+"')";
 			
 			// 3.ResultSet类，用来存放获取的结果集！！
 			int rs = statement.executeUpdate(sql);
 			System.out.println("-----------------");
       
-      /*
-        String zhishidian = null;
-        String tigan = null;
-        int i=1;
-        while(rs.next()){
-        	
-            //获取stuname这列数据
-        	zhishidian = rs.getString("三级知识点");
-        
-            //获取stuid这列数据
-        	tigan = rs.getString("题干");
-         
-
-            //输出结果
-           // System.out.println(zhishidian + "*************" + tigan+"\n");
-            ForFile.writeFileContent(path,"【"+i+"】  " +tigan+"\r\n\r\n\r\n\r\n\r\n");
-            i++;
-        }
-        rs.close();
-        con.close();*/
     } catch(ClassNotFoundException e) {   
         //数据库驱动类异常处理
         System.out.println("Sorry,can`t find the Driver!");   
@@ -83,7 +56,6 @@ public class sqlInsert {
 	
 	public static void main(String args[])
 	{
-		//sqlInsert.sqlInsert("1", "1", "1");
-		sqlInsert.sqlInsert("简单", "追及问题", "测试test");
+		sqlInsert.sqlInsert("简单", "追及问题", "测试test","111","11111");
 	}
 }

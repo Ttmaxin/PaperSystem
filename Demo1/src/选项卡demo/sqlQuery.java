@@ -13,7 +13,7 @@ public class sqlQuery {
     Connection con;
     //驱动程序名
     String driver = "com.mysql.jdbc.Driver";
-    //URL指向要访问的数据库名mydata
+    //URL指向要访问的数据库名sqltestdb
     String url = "jdbc:mysql://localhost:3306/sqltestdb";
     //MySQL配置时的用户名
     String user = "root";
@@ -40,9 +40,7 @@ public class sqlQuery {
       //修改为写入文件
       String path="\\Users\\apple\\Desktop\\"+name+".txt";
      
-     
       ForFile.createFile(name,"---------------------"+"您已选择 "+num+" 道题，难度为 ["+difficulty+"]-----------------------\n\n");
-      //ForFile.writeFileContent(path,"-----------------------------"+"您已选择 "+num+" 道题，难度为 ["+difficulty+"]-------------------------------\n\n");
    
         String zhishidian = null;
         String tigan = null;
@@ -55,9 +53,7 @@ public class sqlQuery {
             //获取stuid这列数据
         	tigan = rs.getString("tg");
          
-
             //输出结果
-           // System.out.println(zhishidian + "*************" + tigan+"\n");
             ForFile.writeFileContent(path,"【"+i+"】  " +tigan+"\r\n\r\n\r\n\r\n\r\n");
             i++;
         }

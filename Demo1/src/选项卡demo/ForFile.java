@@ -10,10 +10,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.UUID;
 
-/** 
-* @author 夕橘子-O
-* @version 2016年7月8日 上午10:38:49 
-*/
 public class ForFile {
     //生成文件路径
     private static String path = "\\Users\\apple\\Desktop\\";
@@ -127,28 +123,6 @@ public class ForFile {
         }
         return bool;
     }
-    
-    
-    public static void main(String[] args) throws IOException {
-        UUID uuid = UUID.randomUUID();
-      //  createFile("myfile2", "我的梦说别停留等待,就让光芒折射泪湿的瞳孔,映出心中最想拥有的彩虹,带我奔向那片有你的天空,因为你是我的梦 我的梦");
-   //测试成功
-        //writeFileContent("\\Users\\apple\\Desktop\\myfile1.txt","1234566");
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }
